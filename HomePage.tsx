@@ -17,6 +17,20 @@ const newArrivals: Product[] = [
     { id: 8, name: 'فستان كوكتيل', price: 550, imageUrl: 'https://picsum.photos/id/567/400/500', category: 'Dresses' },
 ];
 
+interface CategoryCardProps {
+    title: string;
+    imageUrl: string;
+}
+
+const CategoryCard: React.FC<CategoryCardProps> = ({ title, imageUrl }) => (
+    <a href="#" className="relative group block rounded-lg overflow-hidden h-64">
+        <img src={imageUrl} alt={title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"/>
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 className="text-2xl font-bold text-white">{title}</h3>
+        </div>
+    </a>
+);
+
 const CategorySection: React.FC = () => (
     <section className="bg-gray-50 py-12 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,21 +46,6 @@ const CategorySection: React.FC = () => (
         </div>
     </section>
 );
-
-interface CategoryCardProps {
-    title: string;
-    imageUrl: string;
-}
-
-const CategoryCard: React.FC<CategoryCardProps> = ({ title, imageUrl }) => (
-    <a href="#" className="relative group block rounded-lg overflow-hidden h-64">
-        <img src={imageUrl} alt={title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"/>
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 className="text-2xl font-bold text-white">{title}</h3>
-        </div>
-    </a>
-);
-
 
 const HomePage: React.FC = () => {
   return (
